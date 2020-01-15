@@ -5,7 +5,6 @@
 using namespace std;
 
 
-
 string Currency::getCurrencyName() {
     return currency_name;
 }
@@ -22,11 +21,23 @@ int Currency::getFractNum() {
     return fractNum;
 }
 
+Currency Currency::operator+(const Currency& obj) const {
+    
+    Currency temp = obj;
+    temp.wholeNum = wholeNum + obj.wholeNum;
+    temp.fractNum = fractNum + obj.fractNum;
+    if (temp.fractNum > 99) {
+        temp.wholeNum += temp.fractNum / 100;
+        temp.fractNum = temp.fractNum % 100;
+    }
+    return temp;
+}
+
 class Dollar : public Currency {
 public:
     Dollar() {};
 
-    Dollar(int whole, int fract) {
+    Dollar(int whole, int fract) : Currency() {
         currency_name = "Dollar";
         fractional_name = "Cent";
         wholeNum = whole;
@@ -36,7 +47,7 @@ public:
     ~Dollar() {};
 
     Dollar operator+(const Dollar& dollar) {
-        Dollar tempDol;
+        Dollar tempDol = dollar;
         tempDol.wholeNum = wholeNum + dollar.wholeNum;
         wholeNum++;
         tempDol.fractNum = fractNum + dollar.fractNum;

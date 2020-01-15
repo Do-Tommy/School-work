@@ -1,7 +1,10 @@
 #include <iostream>
-
+#include "Currency.h"
+#include "Currency.cpp"
 class Wallet {
 private:
+    Currency * cur[5];
+
     int numOfCurTypes;
     int inputWholeNum;
     int inputFractNum;
@@ -9,35 +12,22 @@ private:
     bool isWalletEmpty;
 
 public:
+    Wallet() {};
+    int getNumOfCurTypes();
 
-    int getNumOfCurTypes() {
-    }
+    bool checkCurExists(Currency &cur);
 
-    bool checkCurExists() {
-        return isCurExists;
-    }
+    bool checkWallet();
 
-    bool checkWallet() {
-        return isWalletEmpty;
-    }
+    void addMoney();
 
-    void addMoney() {
+    void subtractMoney();
 
-    }
+    void removeAllCur();
 
-    void subtractMoney() {
+    void addCurType();
 
-    }
+    void removeCurType();
 
-    void removeAllCur() {
-
-    }
-
-    void addCurType() {
-
-    }
-
-    void removeCurType() {
-
-    }
+    Currency& operator[] (int nIndex);
 };

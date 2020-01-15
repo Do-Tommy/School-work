@@ -1,5 +1,3 @@
-#ifndef CURRENCY_H
-#define CURRENCY_H
 
 #include <iostream>
 #include <string>
@@ -15,15 +13,16 @@ protected:
 public:
     std::string getCurrencyName();
     std::string getFractionalName();
+
+    void setWholeNum(int a) { wholeNum = a; };
+    void setFractNum(int a) { fractNum = a; }
     int getWholeNum();
     int getFractNum();
 
     Currency() {
-        for (int i = 0; i <= SIZE; i++) {
-            arr[i] = i;
-        }
+        
     }
-
+    Currency operator+(const Currency& obj) const;
     int& operator[](int i) {
         if (i > SIZE) {
             std::cout << "Index out of bounds" << endl;
@@ -35,4 +34,3 @@ public:
     friend std::istream& operator>>(std::istream& input, Currency& ());
 };
 
-#endif // !CURRENCY_H

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Currency.h"
-#include "Currency.cpp"
+#pragma once
+
 class Wallet {
 private:
     Currency * cur[5];
@@ -12,22 +13,19 @@ private:
     bool isWalletEmpty;
 
 public:
-    Wallet() {};
+    Wallet();
     int getNumOfCurTypes();
 
     bool checkCurExists(Currency &cur);
 
     bool checkWallet();
 
-    void addMoney();
+    void addMoney(Currency &cur, int input);
 
-    void subtractMoney();
+    void subtractMoney(Currency &cur, int output);
 
     void removeAllCur();
 
-    void addCurType();
+    void removeCurType(Currency &cur);
 
-    void removeCurType();
-
-    Currency& operator[] (int nIndex);
 };

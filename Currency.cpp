@@ -1,3 +1,4 @@
+
 #include "Currency.h"
 #include <iostream>
 #include <string>
@@ -33,20 +34,18 @@ Currency Currency::operator+(const Currency& obj) const {
     return temp;
 }
 
-class Dollar : public Currency {
-public:
-    Dollar() {};
+Dollar::Dollar() {};
 
-    Dollar(int whole, int fract) : Currency() {
+Dollar::Dollar(int whole, int fract) : Currency() {
         currency_name = "Dollar";
         fractional_name = "Cent";
         wholeNum = whole;
         fractNum = fract;
     }
 
-    ~Dollar() {};
+Dollar::~Dollar() {};
 
-    Dollar operator+(const Dollar& dollar) {
+Dollar Dollar::operator+(const Dollar& dollar) {
         Dollar tempDol = dollar;
         tempDol.wholeNum = wholeNum + dollar.wholeNum;
         wholeNum++;
@@ -55,166 +54,160 @@ public:
         return tempDol;
     }
 
-    Dollar operator-(const Dollar& dollar1) {
+Dollar Dollar::operator-(const Dollar& dollar1) {
         Dollar tempDol1;
         tempDol1.wholeNum = wholeNum = dollar1.wholeNum;
         tempDol1.fractNum = fractNum = dollar1.fractNum;
         return tempDol1;
     }
 
-    friend istream& operator>>(istream& input, Dollar& D) {
+istream& operator>>(istream& input, Dollar& D) {
         input >> D.wholeNum >> D.fractNum;
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Dollar& D) {
+ostream& operator<<(ostream& output, Dollar& D) {
         output << "You now have " << D.wholeNum << " Dollars and " << D.fractNum << " Cents in your wallet" << endl;
         return output;
     }
-};
 
-class Euro : public Currency {
-public:
-    Euro() {};
+Pound::Pound() {};
 
-    Euro(int whole, int fract) {
-        currency_name = "Euro";
-        fractional_name = "Cent";
+Pound::Pound(int whole, int fract) {
+        currency_name = "Pound";
+        fractional_name = "Pence";
         wholeNum = whole;
         fractNum = fract;
     }
-    ~Euro() {};
-    Euro operator+(const Euro& euro) {
-        Euro tempEur;
-        tempEur.wholeNum = wholeNum + euro.wholeNum;
-        tempEur.fractNum = fractNum + euro.fractNum;
-        return tempEur;
+Pound::~Pound() {};
+Pound Pound::operator+(const Pound& pound) {
+        Pound tempPou;
+        tempPou.wholeNum = wholeNum + pound.wholeNum;
+        tempPou.fractNum = fractNum + pound.fractNum;
+        return tempPou;
     }
 
-    Euro operator-(const Euro& euro1) {
-        Euro tempEur1;
-        tempEur1.wholeNum = wholeNum - euro1.wholeNum;
-        tempEur1.fractNum = fractNum - euro1.fractNum;
-        return tempEur1;
+Pound Pound::operator-(const Pound& pound1) {
+        Pound tempPou1;
+        tempPou1.wholeNum = wholeNum - pound1.wholeNum;
+        tempPou1.fractNum = fractNum - pound1.fractNum;
+        return tempPou1;
     }
 
-    friend istream& operator>>(istream& input, Euro& E) {
-        input >> E.wholeNum >> E.fractNum;
+    istream& operator>>(istream& input, Pound& P) {
+        input >> P.wholeNum >> P.fractNum;
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Euro& E) {
-        output << "You now have " << E.wholeNum << " Euros and " << E.fractNum << " Cents in your wallet" << endl;
+    ostream& operator<<(ostream& output,Pound& P) {
+        output << "You now have " << P.wholeNum << " Euros and " << P.fractNum << " Cents in your wallet" << endl;
         return output;
     }
-};
 
-class Yen : public Currency {
-public:
-    Yen() {};
 
-    Yen(int whole, int fract) {
+
+Yen::Yen() {};
+
+Yen::Yen(int whole, int fract) {
         currency_name = "Yen";
         fractional_name = "Sen";
         wholeNum = whole;
         fractNum = fract;
     }
 
-    ~Yen() {};
+Yen::~Yen() {};
 
-    Yen operator+(const Yen& yen) {
+    Yen Yen::operator+(const Yen& yen) {
         Yen tempYen;
         tempYen.wholeNum = wholeNum + yen.wholeNum;
         tempYen.fractNum = fractNum + yen.fractNum;
         return tempYen;
     }
 
-    Yen operator-(const Yen& yen1) {
+    Yen Yen::operator-(const Yen& yen1) {
         Yen tempYen1;
         tempYen1.wholeNum = wholeNum - yen1.wholeNum;
         tempYen1.fractNum = fractNum - yen1.fractNum;
         return tempYen1;
     }
 
-    friend istream& operator>>(istream& input, Yen& Y) {
+    istream& operator>>(istream& input, Yen& Y) {
         input >> Y.wholeNum >> Y.fractNum;
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Yen& Y) {
+    ostream& operator<<(ostream& output, Yen& Y) {
         output << "You now have " << Y.wholeNum << " Yens and " << Y.fractNum << " Sens in your wallet" << endl;
         return output;
     }
-};
 
-class Rupee : public Currency {
-public:
-    Rupee() {};
 
-    Rupee(int whole, int fract) {
+
+Rupee::Rupee() {};
+
+Rupee::Rupee(int whole, int fract) {
         currency_name = "Rupee";
         fractional_name = "Paise";
         wholeNum = whole;
         fractNum = fract;
     }
-    ~Rupee() {}; // destructor to empty dollars in wallet
+Rupee::~Rupee() {}; // destructor to empty dollars in wallet
 
-    Rupee operator+(const Rupee& rupee) {
+    Rupee Rupee::operator+(const Rupee& rupee) {
         Rupee tempRupee;
         tempRupee.wholeNum = wholeNum + rupee.wholeNum;
         tempRupee.fractNum = fractNum + rupee.fractNum;
         return tempRupee;
     }
-    Rupee operator-(const Rupee& rupee1) {
+    Rupee Rupee::operator-(const Rupee& rupee1) {
         Rupee tempRupee1;
         tempRupee1.wholeNum = wholeNum - rupee1.wholeNum;
         tempRupee1.fractNum = fractNum - rupee1.fractNum;
         return tempRupee1;
     }
 
-    friend istream& operator>>(istream& input, Rupee& R) {
+    istream& operator>>(istream& input, Rupee& R) {
         input >> R.wholeNum >> R.fractNum;
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Rupee& R) {
-        output << "You now have " << R.wholeNum << " Rupees and " << R.fractNum << " Paises in your wallet" << endl;
+    ostream& operator<<(ostream& output, Rupee& R) {
+        output << "You now have " << R.getWholeNum() << " Rupees and " << R.getFractNum() << " Paises in your wallet" << endl;
         return output;
     }
-};
 
-class Yuan : public Currency {
-public:
-    Yuan() {};
-    Yuan(int whole, int fract) {
+
+
+Yuan::Yuan() {};
+Yuan::Yuan(int whole, int fract) {
         currency_name = "Yuan";
         fractional_name = "Fen";
         wholeNum = whole;
         fractNum = fract;
     }
-    ~Yuan() {};
+Yuan::~Yuan() {};
 
-    Yuan operator+(const Yuan& yuan) {
+    Yuan Yuan::operator+(const Yuan& yuan) {
         Yuan tempYuan;
         tempYuan.wholeNum = wholeNum + yuan.wholeNum;
         tempYuan.fractNum = fractNum + yuan.fractNum;
         return tempYuan;
     }
 
-    Yuan operator-(const Yuan& yuan1) {
+    Yuan Yuan::operator-(const Yuan& yuan1) {
         Yuan tempYuan1;
         tempYuan1.wholeNum = wholeNum - yuan1.wholeNum;
         tempYuan1.fractNum = fractNum - yuan1.fractNum;
         return tempYuan1;
     }
 
-    friend istream& operator>>(istream& input, Yuan& Y) {
+    istream& operator>>(istream& input, Yuan& Y) {
         input >> Y.wholeNum >> Y.fractNum;
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Yuan& Y) {
+    ostream& operator<<(ostream& output,Yuan& Y) {
         output << "You now have " << Y.wholeNum << " Yuans and " << Y.fractNum << " Fens in your wallet" << endl;
         return output;
     }
-};
+

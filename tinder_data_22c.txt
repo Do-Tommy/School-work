@@ -1,0 +1,24 @@
+16309,Herman Sanders,25,Male,San Francisco,University of San Francisco,Football  
+15992,Lauryn Newton,19,Female,Livermore,CSU East Bay,Chess Club
+19271,Timur Griffith,20,Male,San Jose,SJSU,Gaming
+17204,Edgare Miles,21,Female,San Jose,De Anza,Reading
+11492,Becky Nguyen,25,Female,Palo Alto,Marketing at Google,Raves
+18457,Jon Butter,23,Male,Oakland,Engineer,Running
+13012,Keith McBrief,24,Male,San Francisco,SFSU,Gaming 
+13124,Vivian Nguyen,20,Female,Union City,SJSU,Watch Movies
+10824,Woodrow Sullivan,18,Male,Daly City,SFSU,Soccer
+18284,Jennifer Tran,20,Female,Oakland,UC Berkeley,Writing
+12354,Carolyn Norton,18,Female,San Francisco,SCU,Body Building
+10364,Jago Enriquez,22,Male,San Jose,Evergreen Valley College,Cooking
+19867,Fynley Mcconnell,24,Male,Mountain View,De Anza College,Karate
+16914,Jane Pham,Female,26,Female,Fremont,Teacher,Piano
+12987,Tiffany Lopez,30,Female,San Jose,Executive Chef,Cooking
+16387,Steven Barrientos,25,Male,Oakland,Barber,Driving cars
+18279,Drew Lincoln,28,Male,Vallejo,Mechanic,Kayaking
+16464,Anna Lee,19,Female,San Jose,Foothill College,Gaming
+19992,Henry Wayne,26,Male,San Francisco,Software Engineer,Singing
+15964,Ryan Reid,22,Female,Hayward,CSU East Bay,Hiking
+17368,Jonny Xins,25,Male,Oakland,Model,Swimming
+12984,Ashley Madison,35,Female,Cupertino,Entrepreneur,Shopping
+12075,Jeremy Kelly,21,Male,Stockton,Sales Manager,Dancing
+11699,Mariah Kerry,29,Female,San Francisco,Singer,Yoga
